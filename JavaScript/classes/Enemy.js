@@ -2,7 +2,7 @@ class Enemy extends Sprite {
   constructor({ position = { x: 0, y: 0 } }) {
     super({
       position,
-      imageSrc: 'img/troll1_walk.png',
+      imageSrc: 'img/org2_run.png',
       frames: {
         max: 7
       }
@@ -48,7 +48,7 @@ class Enemy extends Sprite {
     const xDistance = waypoint.x - this.center.x
     const angle = Math.atan2(yDistance, xDistance)
 
-    const speed = 1
+    const speed = 7
 
     this.velocity.x = Math.cos(angle) * speed
     this.velocity.y = Math.sin(angle) * speed
