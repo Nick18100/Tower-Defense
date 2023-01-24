@@ -36,7 +36,7 @@ const image = new Image()
 image.onload = () => {
   animate()
 }
-image.src = 'img/gameMap.png'
+image.src = '/img/Maps/1/map1.png'
 
 const enemies = []
 

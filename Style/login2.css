@@ -1,0 +1,146 @@
+.input-popup {
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 0.5rem;
+    width: 30%;
+    height: 50%;
+    position: fixed;
+    top: 25%;
+    right: 35%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: large;
+    overflow: hidden;
+    border-radius: 2rem;
+    color: black; 
+                
+}
+#input-popup {
+    visibility: hidden;
+    z-index: 5;
+}
+.index {
+    z-index: 5;
+}
+.index2 {
+    z-index: 10
+}
+#register {
+    visibility: hidden;
+}
+.invalid-feedback {
+    height: 2rem;
+    width: 94%;
+    margin: auto;
+    display: flex;
+    padding: 0.3rem 0.6rem;
+    background: rgb(212, 78, 16);
+    float: left;
+    border-radius: 0.5rem;
+    align-items: center;
+}
+/* Add padding to containers */
+/* 
+.container {
+    padding: 16px;
+    background-color: rgb(171, 155, 173);
+    width: 50%;
+    margin: auto;
+    border-radius: 2rem;
+    margin-top:10% ;
+    z-index: 5;
+    position: absolute;
+    top: 0;
+    
+    } */
+
+/* Full-width input fields */
+input[type=text], input[type=password] {
+    width: 90%;
+    padding: 15px;
+    margin: 5px 0 22px 0;
+    display: inline-block;
+    border: none;
+    background: #f1f1f1;
+    border-radius: 0.5rem;
+    }
+
+input[type=text]:focus, input[type=password]:focus {
+    background-color: #ddd;
+    outline: none;
+    border-radius: 0.5rem;
+    }
+
+/* Overwrite default styles of hr */
+hr {
+    border: 1px solid #f1f1f1;
+    margin-bottom: 25px;
+    }
+
+/* Set a style for the submit button */
+.registerbtn {
+    background-color: #000000;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 49%;
+    opacity: 0.9;
+    font-size:16px;
+    border-radius: 0.5rem;
+    }
+
+.registerbtn:hover {
+    opacity: 1;
+    }
+
+a {
+    color: white;
+    }
+
+.signin {
+    background-color: #f1f1f1;
+    text-align: center;
+    margin: auto;
+    }
+
+.back-img {
+    height: 3rem; 
+    width: 3rem; 
+    float: right; 
+    margin-top:-3.5rem;
+    }
+
+.head{
+    margin-bottom:40px;
+    text-align: center;
+    }
+.registerbtn-container {
+    display:flex; 
+    justify-content: space-evenly
+    }
+.registerbtn2 {
+    background-color: #000000;
+    color: white;
+    padding: 16px 20px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 32%;
+    opacity: 0.9;
+    font-size:16px;
+    border-radius: 0.5rem;
+    text-align: center;
+    }
+
+.input {
+    color: white
+}
+.register {
+    width: 34%;
+    height: 60%;
+    position: fixed;
+    top: 20%;
+    right: 33%;
+}

@@ -2,7 +2,7 @@ class Enemy extends Sprite {
   constructor({ position = { x: 0, y: 0 } }) {
     super({
       position,
-      imageSrc: 'img/org2_run.png',
+      imageSrc: '/img/Enemys/troll1_walk.png',
       frames: {
         max: 7
       }

@@ -1,0 +1,58 @@
+.playbutton-circle {
+    width: min(55vw, 55vh); 
+    height: min(55vw, 55vh);
+    border-radius: 50%;
+    display: flex;
+    margin: 7vh auto;
+    background: linear-gradient(0deg, #000, #333);
+    position: relative;
+    user-select: none;
+}
+.playbutton-circle:before,
+.playbutton-circle:after {
+    content: "";
+    position: absolute;
+    background: linear-gradient(45deg,  rgb(173, 155, 155),rgb(87, 24, 129), rgb(210, 151, 211));
+    z-index: -1; 
+    width: calc(99.2% + 0.18vw);
+    height: calc(99.2% + 0.18vw);  
+    border-radius: 50%;
+    background-size: 500%;
+    animation: colorgradient 30s linear infinite;
+}
+.playbutton-circle:after {
+    filter: blur(1.5rem);
+}
+.playbutton-triangle {
+    width: 40%;
+    height: 50%;
+    border-radius: 0%;
+    background-color: transparent;
+    background-image: url(../Images/arrow.png);
+    background-position: center center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    position: absolute;
+    /**font:  14vw/0 Arial;**/
+    color: #ede2e9;
+    left: 55%;
+    top: 50%;
+    transform: translateY(-50%) translateX(-55%);
+}
+
+@keyframes colorgradient {
+    0%   { background-position: 0 0 }
+    50%  { background-position: 500% 0 }
+    100% { background-position: 0 0 }
+}
+
+@media screen and (min-width: 1100px) {
+    .playbutton-background {
+        height: min(calc(40vw + 2 * 8vh), calc(100vh - 4rem))  ;
+    }
+    .playbutton-circle{
+        width: 35vw;
+        height: 35vw;
+        margin: 13vh auto;
+    }
+}

@@ -1,0 +1,93 @@
+.header-main {
+    height: 4rem;
+    background-color: #000000d8;
+    font-size: 1.25rem;
+}
+.header-grid {
+    display: grid;
+    grid-template-columns: 6vw repeat(3, 12vw 8vw) auto 4vw 12vw 6vw;
+    grid-template-rows: 4rem;
+    grid-template-areas: 
+        ". index . play . create . . . login .";
+}
+.header-box {
+    margin: auto;
+    border-radius: 1rem;
+}
+.header-link {
+    color: #eeeeee;
+    text-decoration-line: none;
+}
+.header-hover:hover {
+    background-color: #f58608;
+}
+.header-image {
+    width: 2.5rem;
+    height: 3rem;
+}
+.header-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+}
+.header-loginicon {
+    width: 2.5rem;
+    height: 2.5rem;
+    filter: invert(0.9);
+}
+.header-flex {
+    display: flex;
+    align-items: center;
+}
+.header-index {
+    grid-area: index;
+}
+.header-play {
+    grid-area: play;
+}
+.header-create {
+    grid-area: create;
+}
+.header-login {
+    grid-area: login;
+}
+.header-text {
+    display: none;
+}
+.header-text-index {
+    font-size: 2rem;
+    font-weight: bold;
+    display: none;
+}
+
+@media screen and (min-width: 750px) {
+    .header-grid {
+        grid-template-columns: 3vw 13vw 4vw repeat(2, 13vw 4vw) auto 4vw 15vw 3vw;
+    }
+    .header-box {
+        padding: 0.5rem;
+    }
+    .header-text {
+        display: block;
+    }
+    .header-image {
+        padding-right: 0.5rem;
+    }
+    .header-icon {
+        display: none;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .header-grid {
+        grid-template-columns: 3vw 16vw 4vw repeat(2, 10vw 4vw) auto 4vw 10vw 3vw;
+    }
+    .header-text-index {
+        display: block;
+    }
+}
+
+@media screen and (min-width: 1700px) {
+    .header-grid {
+        grid-template-columns: 3vw 12vw 4vw repeat(2, 8vw 4vw) auto 4vw 8vw 3vw;
+    }
+}
