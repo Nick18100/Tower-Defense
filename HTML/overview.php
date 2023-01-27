@@ -23,7 +23,7 @@ $level = ($level["Anzahl"])
   <?php include "header.php" ?>
 <div class="main">
     <?php for ($i = 1; $i < $level +1; $i++):?>
-        <div id = "<?=$i?>" class="element"><?= $i?></div>
+        <a href="/Php/play.php?level=<?=$i?>" id = "<?=$i?>" class="element"><?= $i?></a>
     <?php endfor ?>
 
 </div>

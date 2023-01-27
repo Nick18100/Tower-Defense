@@ -2,7 +2,7 @@ class PlacementTile {
   constructor({ position = { x: 0, y: 0 } }) {
     this.position = position
     this.size = 64
-    this.color = 'rgba(255, 255, 255, 0.15)'
+    this.color = 'rgba(255, 255, 255, 0.1)'
     this.occupied = false
   }
 
@@ -20,7 +20,7 @@ class PlacementTile {
       mouse.y > this.position.y &&
       mouse.y < this.position.y + this.size
     ) {
-      this.color = 'white'
-    } else this.color = 'rgba(255, 255, 255, 0.15)'
+      this.color = 'green'
+    } else this.color = 'rgba(255, 255, 255, 0.1)'
   }
 }

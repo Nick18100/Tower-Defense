@@ -1,7 +1,7 @@
 <?php 
-require '../Php/get_level_info.php';
-$t = 1;
-$test = get_level_information($t);
+require 'get_level_info.php';
+$level_nr = $_GET['level'];
+$level_info = get_level_information($level_nr);
 
 ?>
 

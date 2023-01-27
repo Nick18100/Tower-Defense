@@ -1,8 +1,8 @@
 class Building extends Sprite {
-  constructor({ position = { x: 0, y: 0 } }) {
+  constructor({ position = { x: 0, y: 0 }, radius, imageSrc }) {
     super({
       position,
-      imageSrc: './img/tower.png',
+      imageSrc,
       frames: {
         max: 19
       },
@@ -19,7 +19,7 @@ class Building extends Sprite {
       y: this.position.y + this.height / 2
     }
     this.projectiles = []
-    this.radius = 250
+    this.radius = radius // default 250
     this.target
   }
 
@@ -52,7 +52,9 @@ class Building extends Sprite {
           x: this.center.x - 20,
           y: this.center.y - 110
         },
-        enemy: this.target
+        enemy: this.target,
+        imageSrc: "/img/projectile.png",
+        power: 3
       })
     )
   }

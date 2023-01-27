@@ -45,7 +45,10 @@ function spawnEnemies(spawnCount) {
     const xOffset = i * 150
     enemies.push(
       new Enemy({
-        position: { x: waypoints[0].x - xOffset, y: waypoints[0].y }
+        position: { x: waypoints[0].x - xOffset, y: waypoints[0].y },
+        imageSrc: "/img/Enemys/orc1_walk.png",
+        health: 100,
+        speed: 3
       })
     )
   }
@@ -143,7 +146,7 @@ function animate() {
         explosions.push(
           new Sprite({
             position: { x: projectile.position.x, y: projectile.position.y },
-            imageSrc: './img/explosion.png',
+            imageSrc: '/img/explosion.png',
             frames: { max: 4 },
             offset: { x: 0, y: 0 }
           })
@@ -168,7 +171,10 @@ canvas.addEventListener('click', (event) => {
         position: {
           x: activeTile.position.x,
           y: activeTile.position.y
-        }
+        },
+        radius: 250,
+        imageSrc: "/img/tower.png"
+
       })
     )
     activeTile.isOccupied = true

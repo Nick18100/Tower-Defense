@@ -1,12 +1,13 @@
 class Projectile extends Sprite {
-  constructor({ position = { x: 0, y: 0 }, enemy }) {
-    super({ position, imageSrc: 'img/projectile.png' })
+  constructor({ position = { x: 0, y: 0 }, enemy, imageSrc, power }) {
+    super({ position, imageSrc })
     this.velocity = {
       x: 0,
       y: 0
     }
     this.enemy = enemy
     this.radius = 10
+    this.power = power
   }
 
   update() {
@@ -17,7 +18,7 @@ class Projectile extends Sprite {
       this.enemy.center.x - this.position.x
     )
 
-    const power = 5
+    const power = this.power
     this.velocity.x = Math.cos(angle) * power
     this.velocity.y = Math.sin(angle) * power
 
