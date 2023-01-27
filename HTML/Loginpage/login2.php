@@ -4,7 +4,7 @@ session_start();
 
 // Check if the user is already logged in, if yes then redirect him to welcome page
 if(isset($_SESSION["loggedin"]) && $_SESSION["loggedin"] === true){
-    header("location: ../level.php");
+    header("location: ../overview.php");
     exit;
 }
 
@@ -66,15 +66,17 @@ if($_SERVER["REQUEST_METHOD"] == "POST"){
                             $_SESSION["username"] = $username;                            
                             
                             // Redirect user to welcome page
-                            header("location: /HTML/level.php");
+                            header("location: /HTML/overview.php");
                         } else{
                             // Password is not valid, display a generic error message
                             $login_err = "Falscher Benutzername oder Passwort.";
+                            header("location: /HTML/landingpage.php?login=failed");
                         }
                     }
                 } else{
                     // Username doesn't exist, display a generic error message
                     $login_err = "Falscher Benutzername oder Passwort.";
+                    header("location: /HTML/landingpage.php?login=failed");
                 }
             } else{
                 echo "Oops! Irgendetwas ist schief gelaufen, bitte probieren Sie es später noch einmal.";

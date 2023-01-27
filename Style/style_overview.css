@@ -1,0 +1,51 @@
+.main {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    
+}
+
+.element {
+    height: 10vh;
+    width: 10vh;
+    border-radius: 50%;
+    display: flex;
+    background: linear-gradient(0deg, #000, #333);
+    margin: 5vh 0 0 5vh;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    color: white;
+
+}
+.element-text {
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    top: 50%;
+    left: 50%;
+}
+.element:before,
+.element:after {
+    content: "";
+    /* background: linear-gradient(45deg,  rgb(124, 15, 15),rgb(63, 53, 68)rgb(244, 0, 248)); */
+    background: linear-gradient(0deg, rgb(202, 6, 6), rgb(199, 179, 179), rgb(6, 67, 8));
+    position: absolute;
+    z-index: -1;  
+    height: calc(10vh + 0.4vw);  
+    width: calc(10vh + 0.4vw);
+    margin-left: -0.2vw;
+    margin-top: -0.2vw;
+    border-radius: 50%;
+    background-size: 500%;
+    animation: colorgradient 30s linear infinite;
+}
+.element:after {
+    filter: blur(1.5rem);
+}
+@keyframes colorgradient {
+    0%   { background-position: 0 0 }
+    50%  { background-position: 500% 0 }
+    100% { background-position: 0 0 }
+}

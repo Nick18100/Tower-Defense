@@ -25,5 +25,21 @@
   <?php include('Loginpage/login2.php')?>
   <?php include('Loginpage/register.php')?>
   </div>
+
+<?php if (isset($_GET['login'])):?>
+  <script>
+    login()  
+  </script>
+<?php endif ?>
+
+<?php if (isset($_GET['registration'])):?>
+  <script>
+    document.getElementById('register').style.visibility = "visible"
+    document.getElementById('anmelden').style.visibility = "hidden"
+
+  </script>
+<?php endif ?>
+
 </body>
 </html>
+
