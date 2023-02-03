@@ -36,22 +36,36 @@ const image = new Image()
 image.onload = () => {
   animate()
 }
-image.src =   "/img/Maps"+IMAGE_MAP
+image.src = "/img/Maps"+IMAGE_MAP
+
+
 
 const enemies = []
 
-function spawnEnemies(spawnCount) {
-  for (let i = 1; i < spawnCount + 1; i++) {
-    const xOffset = i * 150
-    enemies.push(
-      new Enemy({
-        position: { x: waypoints[0].x - xOffset, y: waypoints[0].y },
-        imageSrc: "/img/Enemys"+IMAGE_ENEMY,
-        health: ENEMY_HEALTH,
-        speed: ENEMY_SPEED
-      })
-    )
+function spawnEnemies(round) {
+    switch(round) {
+      case 1:
+        for (let i = 1; i < 3 + 1; i++) {
+          const xOffset = i * 150
+          enemies.push(
+            new Enemy({
+              position: { x: waypoints[0].x - xOffset, y: waypoints[0].y },
+              imageSrc: "/img/Enemys"+ORC1[0],
+              health: ORC1[1],
+              speed: ORC1[2],
+              payment: ORC1[3],
+              decrease_hearts: ORC1[4]
+            })
+          )
+        }
+        round -=1
+        spawnEnemies(round)
+        break;
+      case 2:
+        // code block
+        break;
   }
+  //enemies = enemies.reverse()
 }
 
 const buildings = []
@@ -59,8 +73,10 @@ let activeTile = undefined
 let enemyCount = 3
 let hearts = 10
 let coins = 100
+let round = 1
 const explosions = []
-spawnEnemies(enemyCount)
+
+spawnEnemies(round)
 
 function animate() {
   const animationId = requestAnimationFrame(animate)
@@ -72,7 +88,7 @@ function animate() {
     enemy.update()
 
     if (enemy.position.x > canvas.width || (enemy.position.y < -70 && enemy.position.x > 200)) {
-      hearts -= ENEMY_HEARTS_DECREASE
+      hearts -= enemy.decrease_hearts
       enemies.splice(i, 1)
       document.querySelector('#hearts').innerHTML = hearts
 
@@ -92,16 +108,22 @@ function animate() {
     if (explosion.frames.current >= explosion.frames.max - 1) {
       explosions.splice(i, 1)
     }
-
-    console.log(explosions)
   }
 
   // tracking total amount of enemies
   if (enemies.length === 0) {
     enemyCount += 2
-    spawnEnemies(enemyCount)
+    round ++
+    document.getElementById("round").innerHTML = round
+    spawnEnemies(round)
   }
 
+  if (round === NUMBER_ROUNDS + 1){
+    document.querySelector('#gameOver').innerHTML = "VICTORY"
+    document.querySelector('#gameOver').style.display = 'flex'
+    cancelAnimationFrame(animationId)
+
+  }
   placementTiles.forEach((tile) => {
     tile.update(mouse)
   })
@@ -137,7 +159,7 @@ function animate() {
 
           if (enemyIndex > -1) {
             enemies.splice(enemyIndex, 1)
-            coins += ENEMY_PAYMENT
+            coins += projectile.enemy.payment
             document.querySelector('#coins').innerHTML = coins
           }
         }
@@ -156,7 +178,6 @@ function animate() {
     }
   })
 }
-
 const mouse = {
   x: undefined,
   y: undefined

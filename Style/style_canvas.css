@@ -47,7 +47,15 @@ display: inline-block
     align-items: center;
 
 }
-
+.container-rounds {
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    width: 400px;
+    height: 80px;
+    color: white;
+    font-size:36px ;
+}
 .coins {
     display: flex; 
     align-items: center; 

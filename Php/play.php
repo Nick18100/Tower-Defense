@@ -15,10 +15,6 @@ $map_src = $conn->query($sql);
 $map_src = $map_src->fetch_assoc();
 $map_src = $map_src['src'];
 
-$sql2 = ("SELECT * FROM enemy WHERE id = 100");
-$enemy_info = $conn->query($sql2);
-$enemy_info = $enemy_info->fetch_assoc();
-
 $sql3 = ("SELECT * FROM tower");
 $tower_info = $conn->query($sql3);
 $tower_info = $tower_info->fetch_assoc()
@@ -37,6 +33,9 @@ $tower_info = $tower_info->fetch_assoc()
   <canvas></canvas>
   <div id="gameOver" class="game_over">
     GAME OVER
+  </div>
+  <div class="container-rounds">
+    Round <div id="round">1</div>
   </div>
   <div
     class="container">
@@ -80,24 +79,22 @@ $tower_info = $tower_info->fetch_assoc()
 
 <?php
 echo "<script src='/img/Maps/".$level_nr."/placementTilesData.js'></script>";
-echo "<script src='/img/Maps/".$level_nr."/waypoints.js'></script>"?>
-?>
+echo "<script src='/img/Maps/" . $level_nr . "/waypoints.js'></script>";
+
+include "enemies_list.php"?>
+
 <script>
 
-var IMAGE_MAP = "<?=$map_src?>";
+const IMAGE_MAP = "<?=$map_src?>";
 
-var ENEMY_SPEED = <?=$enemy_info['speed'] ?>;
-var ENEMY_HEALTH = <?=$enemy_info['hp'] ?>;
-var ENEMY_HEARTS_DECREASE = <?=$enemy_info['hearts_decrease'] ?>;
-var ENEMY_PAYMENT = <?=$enemy_info['payment'] ?>;
-var IMAGE_ENEMY = "<?=$enemy_info['src'] ?>"
+const NUMBER_ROUNDS = <?=$level_info['num_of_rounds']?>
 
-var TOWER_COST = <?=$tower_info['cost'] ?>;
-var PROJECTILE_SPEED = <?=$tower_info['projectile_speed'] ?>;
-var TOWER_DAMAGE = <?=$tower_info['damage'] ?>;
-var TOWER_RADIUS = <?=$tower_info['radius']?>;
-var IMAGE_TOWER = "<?=$tower_info['src'] ?>";
-var IMAGE_PROJECTILE = "<?=$tower_info['projectile_src'] ?>"
+const TOWER_COST = <?=$tower_info['cost'] ?>;
+const PROJECTILE_SPEED = <?=$tower_info['projectile_speed'] ?>;
+const TOWER_DAMAGE = <?=$tower_info['damage'] ?>;
+const TOWER_RADIUS = <?=$tower_info['radius']?>;
+const IMAGE_TOWER = "<?=$tower_info['src'] ?>";
+const IMAGE_PROJECTILE = "<?=$tower_info['projectile_src'] ?>"
 
 
 </script>

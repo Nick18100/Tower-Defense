@@ -1,5 +1,5 @@
 class Enemy extends Sprite {
-  constructor({ position = { x: 0, y: 0 }, imageSrc, health, speed }) {
+  constructor({ position = { x: 0, y: 0 }, imageSrc, health, speed, payment, decrease_hearts }) {
     super({
       position,
       imageSrc,
@@ -18,6 +18,8 @@ class Enemy extends Sprite {
     this.radius = 50
     this.health = health
     this.speed = speed
+    this.payment = payment
+    this.decrease_hearts = decrease_hearts
     this.velocity = {
       x: 0,
       y: 0
