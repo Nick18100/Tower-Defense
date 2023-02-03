@@ -240,7 +240,7 @@
         {
          "columns":20,
          "firstgid":1,
-         "image":"..\/Designelemente\/tileset2.png",
+         "image":"..\/..\/..\/..\/Designelemente\/tileset2.png",
          "imageheight":1280,
          "imagewidth":1280,
          "margin":0,
@@ -253,7 +253,7 @@
         {
          "columns":14,
          "firstgid":401,
-         "image":"..\/..\/..\/Users\/reich\/Downloads\/tileset.png",
+         "image":"..\/..\/..\/..\/..\/..\/Users\/reich\/Downloads\/tileset.png",
          "imageheight":897,
          "imagewidth":896,
          "margin":0,

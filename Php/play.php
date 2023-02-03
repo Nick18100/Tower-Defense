@@ -1,7 +1,27 @@
 <?php 
 require 'get_level_info.php';
+include 'db_connect.php';
 $level_nr = $_GET['level'];
 $level_info = get_level_information($level_nr);
+
+$level_map = $level_info['map'];
+
+$sql = ("SELECT M.src
+        FROM level L
+        JOIN maps M ON (L.map = M.id)
+        WHERE L.map = $level_map");
+
+$map_src = $conn->query($sql);
+$map_src = $map_src->fetch_assoc();
+$map_src = $map_src['src'];
+
+$sql2 = ("SELECT * FROM enemy WHERE id = 100");
+$enemy_info = $conn->query($sql2);
+$enemy_info = $enemy_info->fetch_assoc();
+
+$sql3 = ("SELECT * FROM tower");
+$tower_info = $conn->query($sql3);
+$tower_info = $tower_info->fetch_assoc()
 
 ?>
 
@@ -58,8 +78,30 @@ $level_info = get_level_information($level_nr);
 </div>
 </div>
 
-<script src="/JavaScript/placementTilesData.js"></script>
-<script src="/JavaScript/waypoints.js"></script>
+<?php
+echo "<script src='/img/Maps/".$level_nr."/placementTilesData.js'></script>";
+echo "<script src='/img/Maps/".$level_nr."/waypoints.js'></script>"?>
+?>
+<script>
+
+var IMAGE_MAP = "<?=$map_src?>";
+
+var ENEMY_SPEED = <?=$enemy_info['speed'] ?>;
+var ENEMY_HEALTH = <?=$enemy_info['hp'] ?>;
+var ENEMY_HEARTS_DECREASE = <?=$enemy_info['hearts_decrease'] ?>;
+var ENEMY_PAYMENT = <?=$enemy_info['payment'] ?>;
+var IMAGE_ENEMY = "<?=$enemy_info['src'] ?>"
+
+var TOWER_COST = <?=$tower_info['cost'] ?>;
+var PROJECTILE_SPEED = <?=$tower_info['projectile_speed'] ?>;
+var TOWER_DAMAGE = <?=$tower_info['damage'] ?>;
+var TOWER_RADIUS = <?=$tower_info['radius']?>;
+var IMAGE_TOWER = "<?=$tower_info['src'] ?>";
+var IMAGE_PROJECTILE = "<?=$tower_info['projectile_src'] ?>"
+
+
+</script>
+
 <script src="/JavaScript/classes/Sprite.js"></script>
 <script src="/JavaScript/classes/Building.js"></script>
 <script src="/JavaScript/classes/Enemy.js"></script>

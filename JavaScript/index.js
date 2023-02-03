@@ -36,7 +36,7 @@ const image = new Image()
 image.onload = () => {
   animate()
 }
-image.src = '/img/Maps/1/map1.png'
+image.src =   "/img/Maps"+IMAGE_MAP
 
 const enemies = []
 
@@ -46,9 +46,9 @@ function spawnEnemies(spawnCount) {
     enemies.push(
       new Enemy({
         position: { x: waypoints[0].x - xOffset, y: waypoints[0].y },
-        imageSrc: "/img/Enemys/orc1_walk.png",
-        health: 100,
-        speed: 3
+        imageSrc: "/img/Enemys"+IMAGE_ENEMY,
+        health: ENEMY_HEALTH,
+        speed: ENEMY_SPEED
       })
     )
   }
@@ -71,8 +71,8 @@ function animate() {
     const enemy = enemies[i]
     enemy.update()
 
-    if (enemy.position.x > canvas.width) {
-      hearts -= 1
+    if (enemy.position.x > canvas.width || (enemy.position.y < -70 && enemy.position.x > 200)) {
+      hearts -= ENEMY_HEARTS_DECREASE
       enemies.splice(i, 1)
       document.querySelector('#hearts').innerHTML = hearts
 
@@ -129,7 +129,7 @@ function animate() {
       // this is when a projectile hits an enemy
       if (distance < projectile.enemy.radius + projectile.radius) {
         // enemy health and enemy removal
-        projectile.enemy.health -= 20
+        projectile.enemy.health -= TOWER_DAMAGE
         if (projectile.enemy.health <= 0) {
           const enemyIndex = enemies.findIndex((enemy) => {
             return projectile.enemy === enemy
@@ -137,7 +137,7 @@ function animate() {
 
           if (enemyIndex > -1) {
             enemies.splice(enemyIndex, 1)
-            coins += 25
+            coins += ENEMY_PAYMENT
             document.querySelector('#coins').innerHTML = coins
           }
         }
@@ -164,7 +164,7 @@ const mouse = {
 
 canvas.addEventListener('click', (event) => {
   if (activeTile && !activeTile.isOccupied && coins - 50 >= 0) {
-    coins -= 50
+    coins -= TOWER_COST
     document.querySelector('#coins').innerHTML = coins
     buildings.push(
       new Building({
@@ -172,8 +172,8 @@ canvas.addEventListener('click', (event) => {
           x: activeTile.position.x,
           y: activeTile.position.y
         },
-        radius: 250,
-        imageSrc: "/img/tower.png"
+        radius: TOWER_RADIUS,
+        imageSrc: IMAGE_TOWER
 
       })
     )

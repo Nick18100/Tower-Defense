@@ -53,8 +53,8 @@ class Building extends Sprite {
           y: this.center.y - 110
         },
         enemy: this.target,
-        imageSrc: "/img/projectile.png",
-        power: 3
+        imageSrc: IMAGE_PROJECTILE,
+        power: 5
       })
     )
   }
