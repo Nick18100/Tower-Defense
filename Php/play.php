@@ -36,7 +36,7 @@ $tower_info = $tower_info->fetch_assoc()
     GAME OVER
   </div>
   <div class="container-rounds">
-    Lap <div id="round">1</div>
+    <div id="round">Lap 1</div>
   </div>
   <div
     class="container">
@@ -120,7 +120,8 @@ const IMAGE_PROJECTILE = "<?=$tower_info['projectile_src'] ?>"
   function play_stop(slot){
     if (slot == 0){
       document.getElementById(0).slot = 1
-    } else {
+    } else 
+    if (slot == 1) {
       const animationId = requestAnimationFrame(animate)
       document.getElementById(0).slot = 0
 

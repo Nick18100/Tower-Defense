@@ -80,7 +80,9 @@ function animate() {
       if (hearts === 0) {
         console.log('game over')
         cancelAnimationFrame(animationId)
+        document.querySelector('#gameOver').innerHTML = "GAME OVER"
         document.querySelector('#gameOver').style.display = 'flex'
+        document.getElementById(0).slot = 3
       }
     }
   }
@@ -101,7 +103,7 @@ function animate() {
     coins += 10 * current_lap
     document.querySelector('#coins').innerHTML = coins
     current_lap ++
-    document.getElementById("round").innerHTML = current_lap
+    document.getElementById("round").innerHTML = "Lap "+ current_lap
     spawnEnemies(current_lap)
   }
 
