@@ -99,6 +99,7 @@ const IMAGE_PROJECTILE = "<?=$tower_info['projectile_src'] ?>"
 
 </script>
 
+<script src="/JavaScript/functions/spawn_enemies.js"></script>
 <script src="/JavaScript/classes/Sprite.js"></script>
 <script src="/JavaScript/classes/Building.js"></script>
 <script src="/JavaScript/classes/Enemy.js"></script>

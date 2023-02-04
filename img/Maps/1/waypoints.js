@@ -40,3 +40,5 @@ const waypoints = [
     y: 286.518714806227
   }
 ]
+
+const waypoints2 = waypoints

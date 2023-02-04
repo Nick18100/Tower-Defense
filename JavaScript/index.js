@@ -40,43 +40,17 @@ image.src = "/img/Maps"+IMAGE_MAP
 
 
 
-const enemies = []
-
-function spawnEnemies(round) {
-    switch(round) {
-      case 1:
-        for (let i = 1; i < 3 + 1; i++) {
-          const xOffset = i * 150
-          enemies.push(
-            new Enemy({
-              position: { x: waypoints[0].x - xOffset, y: waypoints[0].y },
-              imageSrc: "/img/Enemys"+ORC1[0],
-              health: ORC1[1],
-              speed: ORC1[2],
-              payment: ORC1[3],
-              decrease_hearts: ORC1[4]
-            })
-          )
-        }
-        round -=1
-        spawnEnemies(round)
-        break;
-      case 2:
-        // code block
-        break;
-  }
-  //enemies = enemies.reverse()
-}
+var enemies = []
 
 const buildings = []
 let activeTile = undefined
 let enemyCount = 3
 let hearts = 10
 let coins = 100
-let round = 1
+let current_lap = 1
 const explosions = []
 
-spawnEnemies(round)
+spawnEnemies(current_lap)
 
 function animate() {
   const animationId = requestAnimationFrame(animate)
@@ -112,18 +86,21 @@ function animate() {
 
   // tracking total amount of enemies
   if (enemies.length === 0) {
-    enemyCount += 2
-    round ++
-    document.getElementById("round").innerHTML = round
-    spawnEnemies(round)
+    // enemyCount += 2
+    coins += 10 * current_lap
+    document.querySelector('#coins').innerHTML = coins
+    current_lap ++
+    document.getElementById("round").innerHTML = current_lap
+    spawnEnemies(current_lap)
   }
 
-  if (round === NUMBER_ROUNDS + 1){
+  if (current_lap === NUMBER_ROUNDS +1){
     document.querySelector('#gameOver').innerHTML = "VICTORY"
     document.querySelector('#gameOver').style.display = 'flex'
     cancelAnimationFrame(animationId)
 
   }
+ 
   placementTiles.forEach((tile) => {
     tile.update(mouse)
   })
