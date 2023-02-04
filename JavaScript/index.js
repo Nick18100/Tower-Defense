@@ -61,6 +61,11 @@ function animate() {
   var stop_animation = document.getElementById(0).slot
   if (stop_animation == 1){
     cancelAnimationFrame(animationId)
+    document.querySelector('#gameOver').innerHTML = "pause"
+    document.querySelector('#gameOver').style.display = 'flex'
+  } else {
+    document.querySelector('#gameOver').style.display = 'none'
+
   }
 
   for (let i = enemies.length - 1; i >= 0; i--) {
