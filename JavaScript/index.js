@@ -57,6 +57,12 @@ function animate() {
 
   c.drawImage(image, 0, 0)
 
+  // stop aniumation on button click
+  var stop_animation = document.getElementById(0).slot
+  if (stop_animation == 1){
+    cancelAnimationFrame(animationId)
+  }
+
   for (let i = enemies.length - 1; i >= 0; i--) {
     const enemy = enemies[i]
     enemy.update()

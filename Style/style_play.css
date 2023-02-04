@@ -1,0 +1,22 @@
+.right {
+    height: 100%;
+    width: 30%;
+    float: right;
+    top: 0;
+    right: 0;
+    display: flex;
+}
+
+.button-container {
+
+    width: 10px;
+    height: 5vh;
+    display: flex;
+}
+
+.button {
+    width: 15vw;
+    height: 15vw;
+    color: white;
+    cursor: pointer;
+}

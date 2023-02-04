@@ -28,6 +28,7 @@ $tower_info = $tower_info->fetch_assoc()
   rel="stylesheet"
 />
 <link rel="stylesheet" href="/Style/style_canvas.css">
+<link rel="stylesheet" href="/Style/style_play.css">
 
 <div class="canvas-container">
   <canvas></canvas>
@@ -35,7 +36,7 @@ $tower_info = $tower_info->fetch_assoc()
     GAME OVER
   </div>
   <div class="container-rounds">
-    Round <div id="round">1</div>
+    Lap <div id="round">1</div>
   </div>
   <div
     class="container">
@@ -77,6 +78,14 @@ $tower_info = $tower_info->fetch_assoc()
 </div>
 </div>
 
+<div class="right">
+  <!-- <div class="button-container">
+    <div class="button">
+    </div>
+  </div> -->
+  <img id ="0" slot = "0"class="button" onclick ="play_stop(this.slot)" src="/img/play-stop.png" alt="">
+</div>
+
 <?php
 echo "<script src='/img/Maps/".$level_nr."/placementTilesData.js'></script>";
 echo "<script src='/img/Maps/" . $level_nr . "/waypoints.js'></script>";
@@ -106,3 +115,15 @@ const IMAGE_PROJECTILE = "<?=$tower_info['projectile_src'] ?>"
 <script src="/JavaScript/classes/Projectile.js"></script>
 <script src="/JavaScript/classes/PlacementTile.js"></script>
 <script src="/JavaScript/index.js"></script>
+
+<script>
+  function play_stop(slot){
+    if (slot == 0){
+      document.getElementById(0).slot = 1
+    } else {
+      const animationId = requestAnimationFrame(animate)
+      document.getElementById(0).slot = 0
+
+    }
+  }
+</script>
